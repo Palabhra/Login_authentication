@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="dat"></h1>
+    <input type="button" value="Log-out" onclick="return clearLoginData()">
+    <script>
+        if (localStorage.getItem("login")==null) {
+            window.location.href="login1.html";
+
+        }
+        function clearLoginData() {
+            localStorage.removeItem("login");
+            window.location.href="login1.html";
+        }
+        let x = localStorage.getItem("login");
+        let JSONconvert = JSON.parse(x);
+        document.getElementById("dat").innerHTML=`Welcome ${JSONconvert.Email}`
+    </script>
+
+</body>
+</html>
